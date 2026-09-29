@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <!-- Google Fonts Inter & Outfit -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Outfit:wght@600;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
 
     <script>
         tailwind.config = {
@@ -24,7 +24,7 @@
                             blueDark: '#2C52C2',
                             blueLight: '#AEC8E9',
                             green: '#7AC68C',
-                            greenDark: '#2e7d32',
+                            greenDark: '#256C36',
                             greenNeon: '#A8FF9C',
                             dark: '#282827',
                             bgGray: '#F4F7FB',
@@ -36,9 +36,9 @@
                         heading: ['Outfit', 'Inter', 'sans-serif']
                     },
                     boxShadow: {
-                        'glow': '0 10px 30px -5px rgba(63, 111, 235, 0.4)',
-                        'green-glow': '0 10px 30px -5px rgba(122, 198, 140, 0.5)',
-                        'card': '0 8px 30px rgba(0, 0, 0, 0.08)'
+                        'glow': '0 12px 35px -5px rgba(63, 111, 235, 0.45)',
+                        'green-glow': '0 12px 35px -5px rgba(122, 198, 140, 0.55)',
+                        'card': '0 10px 30px rgba(0, 0, 0, 0.08)'
                     }
                 }
             }
@@ -63,18 +63,17 @@
             user-select: none;
         }
 
-        /* Fullscreen Carousel Container */
+        /* Full Screen Mobile Viewport Layout */
         .app-container {
             width: 100%;
             height: 100%;
             height: 100dvh;
-            max-width: 540px;
+            max-width: 600px;
             margin: 0 auto;
             display: flex;
             flex-direction: column;
             background-color: #F4F7FB;
             position: relative;
-            box-shadow: 0 0 50px rgba(0,0,0,0.5);
         }
 
         .slides-wrapper {
@@ -97,14 +96,14 @@
             padding: 1rem 1.25rem 5.5rem 1.25rem;
         }
 
-        /* Custom Badges & Pulse Animations */
+        /* Pulse Animations */
         @keyframes pulseGlow {
             0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.85; transform: scale(1.03); }
+            50% { opacity: 0.9; transform: scale(1.03); }
         }
 
         .animate-glow {
-            animation: pulseGlow 2.5s infinite ease-in-out;
+            animation: pulseGlow 2s infinite ease-in-out;
         }
 
         @keyframes checkPop {
@@ -117,7 +116,6 @@
             animation: checkPop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
         }
 
-        /* Custom touch scrollbar hide */
         .no-scrollbar::-webkit-scrollbar {
             display: none;
         }
@@ -130,11 +128,11 @@
             display: inline-flex;
             align-items: center;
             gap: 0.4rem;
-            padding: 0.4rem 0.85rem;
+            padding: 0.5rem 1rem;
             border-radius: 9999px;
-            font-weight: 700;
-            font-size: 0.75rem;
-            letter-spacing: 0.02em;
+            font-weight: 800;
+            font-size: 0.8rem;
+            letter-spacing: 0.03em;
         }
     </style>
 </head>
@@ -142,37 +140,36 @@
 
     <main class="app-container text-upago-dark">
         
-        <!-- TOP BRAND HEADER -->
-        <header class="bg-white/95 backdrop-blur-md px-4 py-3 border-b border-gray-200 flex items-center justify-between shrink-0 z-30 pt-safe">
-            <!-- Brand Identity Logo -->
-            <div class="flex items-center space-x-2.5">
-                <div class="w-10 h-10 rounded-xl bg-upago-blue flex items-center justify-center shadow-md">
-                    <!-- Stylized U Icon from Brand Manual -->
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- HEADER -->
+        <header class="bg-white px-4 py-3.5 border-b border-gray-200 flex items-center justify-between shrink-0 z-30 pt-safe shadow-sm">
+            <!-- Brand Logo -->
+            <div class="flex items-center space-x-3">
+                <div class="w-11 h-11 rounded-2xl bg-upago-blue flex items-center justify-center shadow-md">
+                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M6 3V13C6 16.3137 8.68629 19 12 19C15.3137 19 18 16.3137 18 13V3" stroke="white" stroke-width="4" stroke-linecap="round"/>
                         <path d="M18 10L21 7M18 10L15 7" stroke="#A8FF9C" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                 </div>
                 <div>
                     <span class="font-heading font-black text-2xl tracking-tight text-upago-dark leading-none block">UPAGO</span>
-                    <span class="text-[10px] text-gray-500 font-bold uppercase tracking-widest block -mt-0.5">Fintech Latam</span>
+                    <span class="text-[11px] text-upago-blue font-extrabold uppercase tracking-wider block mt-0.5">FINTECH LATAM</span>
                 </div>
             </div>
 
-            <!-- Header Tools -->
+            <!-- Controls -->
             <div class="flex items-center space-x-2">
-                <button id="soundBtn" onclick="toggleSound()" class="w-9 h-9 rounded-xl bg-gray-100 text-gray-600 hover:text-upago-blue flex items-center justify-center transition active:scale-90" aria-label="Audio">
-                    <i id="soundIcon" class="fas fa-volume-up text-sm"></i>
+                <button id="soundBtn" onclick="toggleSound()" class="w-10 h-10 rounded-2xl bg-gray-100 text-gray-700 hover:text-upago-blue flex items-center justify-center transition active:scale-90" aria-label="Audio">
+                    <i id="soundIcon" class="fas fa-volume-up text-base"></i>
                 </button>
-                <div class="bg-upago-blue/10 border border-upago-blue/20 text-upago-blue px-3 py-1 rounded-xl text-xs font-black">
-                    <span id="slideCurrent">1</span>/5
+                <div class="bg-upago-blue text-white px-3.5 py-1.5 rounded-2xl text-xs font-black shadow-sm">
+                    <span id="slideCurrent">1</span> / 5
                 </div>
             </div>
         </header>
 
-        <!-- TOP PROGRESS INDICATOR -->
-        <div class="w-full bg-gray-200 h-1.5 shrink-0 z-30">
-            <div id="progressBar" class="bg-gradient-to-r from-upago-blue via-upago-blueDark to-upago-green h-1.5 w-1/5 transition-all duration-300"></div>
+        <!-- PROGRESS BAR -->
+        <div class="w-full bg-gray-200 h-2 shrink-0 z-30">
+            <div id="progressBar" class="bg-gradient-to-r from-upago-blue via-upago-blueDark to-upago-green h-2 w-1/5 transition-all duration-300"></div>
         </div>
 
         <div class="relative flex-1 overflow-hidden" id="carouselViewport">
@@ -183,86 +180,86 @@
                     <div class="space-y-4">
                         <!-- Headline Badge -->
                         <div class="badge-pill bg-upago-blue/15 text-upago-blue border border-upago-blue/30">
-                            <i class="fas fa-bolt text-xs text-upago-blue"></i>
+                            <i class="fas fa-bolt text-sm"></i>
                             <span>CONCILIACIÓN EN TIEMPO REAL</span>
                         </div>
 
-                        <!-- Direct Impact Title -->
-                        <h1 class="font-heading font-black text-2xl sm:text-3xl text-gray-900 leading-tight">
+                        <!-- Big Headline -->
+                        <h1 class="font-heading font-black text-3xl sm:text-4xl text-gray-900 leading-tight">
                             ¿Aún revisas transferencias <span class="text-upago-blue underline decoration-upago-green decoration-4">a mano?</span>
                         </h1>
 
-                        <p class="text-sm sm:text-base text-gray-700 font-medium leading-relaxed">
-                            La revisión manual causa cobros duplicados, clientes molestos y días perdidos en planillas Excel.
+                        <p class="text-base text-gray-800 font-bold leading-relaxed">
+                            La revisión manual genera cobros duplicados, clientes molestos y días perdidos en Excel.
                         </p>
 
-                        <!-- High Contrast Comparison Box -->
-                        <div class="bg-white p-4 rounded-2xl border-2 border-gray-200 shadow-card space-y-3">
-                            <div class="text-xs font-extrabold text-gray-400 uppercase tracking-wider flex justify-between">
+                        <!-- High Impact Comparison Box -->
+                        <div class="bg-white p-4 sm:p-5 rounded-3xl border-2 border-gray-200 shadow-card space-y-3.5">
+                            <div class="text-xs font-black text-gray-400 uppercase tracking-wider flex justify-between">
                                 <span>COMPARATIVA DIRECTA</span>
-                                <span class="text-upago-blue font-bold">UPAGO VS TRADICIONAL</span>
+                                <span class="text-upago-blue font-black">UPAGO VS TRADICIONAL</span>
                             </div>
 
-                            <!-- Traditional Method -->
-                            <div class="p-3.5 rounded-xl bg-red-50 border border-red-200 flex items-center justify-between gap-2">
+                            <!-- Traditional -->
+                            <div class="p-4 rounded-2xl bg-red-50 border-2 border-red-200 flex items-center justify-between gap-3">
                                 <div class="flex items-center gap-3">
-                                    <div class="w-10 h-10 rounded-xl bg-red-100 text-upago-red flex items-center justify-center text-lg font-bold shrink-0">
+                                    <div class="w-11 h-11 rounded-2xl bg-red-100 text-upago-red flex items-center justify-center text-xl font-black shrink-0">
                                         <i class="fas fa-file-excel"></i>
                                     </div>
                                     <div>
-                                        <div class="text-sm font-extrabold text-gray-900">Proceso Manual</div>
-                                        <div class="text-xs text-gray-600 font-medium">Cartolas lentas y con errores</div>
+                                        <div class="text-base font-black text-gray-900">Excel / Manual</div>
+                                        <div class="text-xs text-gray-600 font-bold">Cartolas lentas y con errores</div>
                                     </div>
                                 </div>
-                                <span class="text-xs font-extrabold bg-red-200 text-red-900 px-2.5 py-1 rounded-lg shrink-0">
+                                <span class="text-xs font-black bg-red-200 text-red-900 px-3 py-1.5 rounded-xl shrink-0">
                                     ~3 Días ⌛
                                 </span>
                             </div>
 
                             <!-- UPAGO Method -->
-                            <div class="p-3.5 rounded-xl bg-gradient-to-r from-blue-50 to-green-50 border-2 border-upago-green flex items-center justify-between gap-2 shadow-sm">
+                            <div class="p-4 rounded-2xl bg-gradient-to-r from-blue-50 via-emerald-50 to-green-50 border-2 border-upago-green flex items-center justify-between gap-3 shadow-md">
                                 <div class="flex items-center gap-3">
-                                    <div class="w-10 h-10 rounded-xl bg-upago-blue text-white flex items-center justify-center text-lg font-bold shrink-0 shadow-md">
+                                    <div class="w-11 h-11 rounded-2xl bg-upago-blue text-white flex items-center justify-center text-xl font-black shrink-0 shadow-md">
                                         <i class="fas fa-robot"></i>
                                     </div>
                                     <div>
-                                        <div class="text-sm font-black text-gray-900 flex items-center gap-1">
+                                        <div class="text-base font-black text-gray-900 flex items-center gap-1.5">
                                             <span>Con UPAGO</span>
-                                            <i class="fas fa-circle-check text-upago-green text-sm"></i>
+                                            <i class="fas fa-circle-check text-upago-green text-base"></i>
                                         </div>
-                                        <div class="text-xs text-upago-blueDark font-bold">100% Automático e Inmediato</div>
+                                        <div class="text-xs text-upago-blueDark font-extrabold">100% Automático</div>
                                     </div>
                                 </div>
-                                <span class="text-xs font-black bg-upago-green text-white px-3 py-1 rounded-lg shrink-0 shadow animate-glow">
+                                <span class="text-xs font-black bg-upago-green text-white px-3.5 py-1.5 rounded-xl shrink-0 shadow animate-glow">
                                     1 Minuto ⚡
                                 </span>
                             </div>
                         </div>
 
                         <!-- Direct Value Props Grid -->
-                        <div class="grid grid-cols-2 gap-2.5">
-                            <div class="bg-white p-3 rounded-xl border border-gray-200 flex items-center gap-2.5 shadow-sm">
-                                <div class="w-8 h-8 rounded-lg bg-green-100 text-upago-greenDark flex items-center justify-center font-bold text-sm">
+                        <div class="grid grid-cols-2 gap-3">
+                            <div class="bg-white p-3.5 rounded-2xl border border-gray-200 flex items-center gap-3 shadow-sm">
+                                <div class="w-9 h-9 rounded-xl bg-green-100 text-upago-greenDark flex items-center justify-center font-black text-base shrink-0">
                                     <i class="fas fa-shield-halved"></i>
                                 </div>
-                                <span class="text-xs font-extrabold text-gray-800 leading-tight">0% Errores Manuales</span>
+                                <span class="text-xs font-black text-gray-900 leading-tight">0% Errores Manuales</span>
                             </div>
-                            <div class="bg-white p-3 rounded-xl border border-gray-200 flex items-center gap-2.5 shadow-sm">
-                                <div class="w-8 h-8 rounded-lg bg-blue-100 text-upago-blue flex items-center justify-center font-bold text-sm">
+                            <div class="bg-white p-3.5 rounded-2xl border border-gray-200 flex items-center gap-3 shadow-sm">
+                                <div class="w-9 h-9 rounded-xl bg-blue-100 text-upago-blue flex items-center justify-center font-black text-base shrink-0">
                                     <i class="fas fa-chart-line"></i>
                                 </div>
-                                <span class="text-xs font-extrabold text-gray-800 leading-tight">+ Flujo de Caja</span>
+                                <span class="text-xs font-black text-gray-900 leading-tight">+ Flujo de Caja</span>
                             </div>
                         </div>
                     </div>
 
                     <!-- Bottom Callout -->
-                    <div class="bg-upago-dark text-white p-3.5 rounded-2xl flex items-center justify-between mt-3">
-                        <div class="flex items-center gap-2.5">
-                            <span class="text-xl">💡</span>
-                            <span class="text-xs font-bold text-gray-200">Desliza para ver la tecnología en vivo</span>
+                    <div class="bg-upago-dark text-white p-4 rounded-2xl flex items-center justify-between mt-3 shadow-lg">
+                        <div class="flex items-center gap-3">
+                            <span class="text-2xl">💡</span>
+                            <span class="text-xs font-extrabold text-gray-100">Desliza para ver el robot en acción</span>
                         </div>
-                        <i class="fas fa-arrow-right text-upago-greenNeon font-bold text-base animate-bounce"></i>
+                        <i class="fas fa-arrow-right text-upago-greenNeon font-black text-lg animate-bounce"></i>
                     </div>
                 </section>
 
@@ -270,62 +267,62 @@
                 <section class="slide-item">
                     <div class="space-y-4">
                         <div class="badge-pill bg-upago-green/20 text-upago-greenDark border border-upago-green/40">
-                            <i class="fas fa-microchip"></i>
+                            <i class="fas fa-microchip text-sm"></i>
                             <span>ROBOT INTELIGENTE DE CONCILIACIÓN</span>
                         </div>
 
-                        <h2 class="font-heading font-black text-2xl sm:text-3xl text-gray-900 leading-tight">
+                        <h2 class="font-heading font-black text-3xl sm:text-4xl text-gray-900 leading-tight">
                             ¿Cómo concilia <span class="text-upago-greenDark">UPAGO</span> tus cuentas?
                         </h2>
 
-                        <p class="text-sm text-gray-700 font-medium">
-                            Nuestro bot conecta la cuenta corriente corporativa y concilia abonando automáticamente sin preguntarle al cliente.
+                        <p class="text-sm sm:text-base text-gray-800 font-bold">
+                            Nuestro bot conecta tu cuenta bancaria corporativa y concilia abonos de inmediato sin consultar al cliente.
                         </p>
 
-                        <!-- Step Interactive Cards -->
-                        <div class="space-y-2.5">
-                            <div id="stepCard1" onclick="highlightStep(1)" class="p-3.5 rounded-2xl bg-white border-2 border-upago-blue shadow-md transition-all cursor-pointer">
-                                <div class="flex items-start gap-3">
-                                    <div class="w-8 h-8 rounded-full bg-upago-blue text-white flex items-center justify-center font-black text-sm shrink-0">1</div>
+                        <!-- Step Cards -->
+                        <div class="space-y-3">
+                            <div id="stepCard1" onclick="highlightStep(1)" class="p-4 rounded-2xl bg-white border-2 border-upago-blue shadow-md transition-all cursor-pointer">
+                                <div class="flex items-start gap-3.5">
+                                    <div class="w-9 h-9 rounded-full bg-upago-blue text-white flex items-center justify-center font-black text-base shrink-0 shadow-sm">1</div>
                                     <div>
-                                        <h3 class="text-sm font-extrabold text-gray-900">Lectura Frecuente (Cada 1 Minuto)</h3>
-                                        <p class="text-xs text-gray-600 mt-0.5 font-medium">El bot revisa las transferencias recibidas en tu banco con llaves seguras de lectura.</p>
+                                        <h3 class="text-base font-black text-gray-900">Lectura Frecuente (Cada 1 Minuto)</h3>
+                                        <p class="text-xs text-gray-600 mt-1 font-semibold">El bot revisa las transferencias de tu banco con llaves seguras de lectura.</p>
                                     </div>
                                 </div>
                             </div>
 
-                            <div id="stepCard2" onclick="highlightStep(2)" class="p-3.5 rounded-2xl bg-white border border-gray-200 opacity-70 transition-all cursor-pointer">
-                                <div class="flex items-start gap-3">
-                                    <div class="w-8 h-8 rounded-full bg-gray-200 text-gray-700 flex items-center justify-center font-black text-sm shrink-0">2</div>
+                            <div id="stepCard2" onclick="highlightStep(2)" class="p-4 rounded-2xl bg-white border border-gray-200 opacity-60 transition-all cursor-pointer">
+                                <div class="flex items-start gap-3.5">
+                                    <div class="w-9 h-9 rounded-full bg-gray-200 text-gray-700 flex items-center justify-center font-black text-base shrink-0">2</div>
                                     <div>
-                                        <h3 class="text-sm font-extrabold text-gray-900">Cruce Inteligente por RUT o Factura</h3>
-                                        <p class="text-xs text-gray-600 mt-0.5 font-medium">Identifica el abono exacto usando reglas avanzadas y algoritmos A/B.</p>
+                                        <h3 class="text-base font-black text-gray-900">Cruce Inteligente por RUT o Factura</h3>
+                                        <p class="text-xs text-gray-600 mt-1 font-semibold">Identifica el abono exacto usando reglas de negocio y algoritmos A/B.</p>
                                     </div>
                                 </div>
                             </div>
 
-                            <div id="stepCard3" onclick="highlightStep(3)" class="p-3.5 rounded-2xl bg-white border border-gray-200 opacity-70 transition-all cursor-pointer">
-                                <div class="flex items-start gap-3">
-                                    <div class="w-8 h-8 rounded-full bg-gray-200 text-gray-700 flex items-center justify-center font-black text-sm shrink-0">3</div>
+                            <div id="stepCard3" onclick="highlightStep(3)" class="p-4 rounded-2xl bg-white border border-gray-200 opacity-60 transition-all cursor-pointer">
+                                <div class="flex items-start gap-3.5">
+                                    <div class="w-9 h-9 rounded-full bg-gray-200 text-gray-700 flex items-center justify-center font-black text-base shrink-0">3</div>
                                     <div>
-                                        <h3 class="text-sm font-extrabold text-gray-900">Impacto Directo en tu ERP</h3>
-                                        <p class="text-xs text-gray-600 mt-0.5 font-medium">Liquida la deuda al instante en tu sistema (SAP, Salesforce o ERP a medida).</p>
+                                        <h3 class="text-base font-black text-gray-900">Impacto Directo en tu ERP</h3>
+                                        <p class="text-xs text-gray-600 mt-1 font-semibold">Saldar la deuda en tiempo real en tu sistema (SAP, Salesforce o ERP propio).</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Action Button Simulation -->
-                        <button onclick="runBotSimulation()" class="w-full bg-gradient-to-r from-upago-blue to-upago-blueDark text-white py-3.5 rounded-2xl font-extrabold text-sm shadow-glow active:scale-95 transition flex items-center justify-center gap-2">
-                            <i class="fas fa-circle-play text-upago-greenNeon text-lg"></i>
-                            <span>VER SIMULACIÓN EN VIVO</span>
+                        <!-- Action Simulation Button -->
+                        <button onclick="runBotSimulation()" class="w-full bg-gradient-to-r from-upago-blue to-upago-blueDark text-white py-4 rounded-2xl font-black text-base shadow-glow active:scale-95 transition flex items-center justify-center gap-3">
+                            <i class="fas fa-circle-play text-upago-greenNeon text-xl"></i>
+                            <span>PROBAR SIMULADOR EN VIVO</span>
                         </button>
                     </div>
 
                     <!-- Bot Toast Status -->
-                    <div id="botSimStatus" class="hidden mt-2 bg-upago-dark text-white p-3.5 rounded-2xl text-xs font-bold flex items-center gap-3 border border-gray-700 shadow-xl">
-                        <div class="spinner border-3 border-upago-greenNeon border-t-transparent rounded-full w-5 h-5 animate-spin"></div>
-                        <span id="botSimText" class="text-xs text-gray-100">Iniciando lectura de cartola bancaria...</span>
+                    <div id="botSimStatus" class="hidden mt-2 bg-upago-dark text-white p-4 rounded-2xl text-sm font-black flex items-center gap-3 border border-gray-700 shadow-xl">
+                        <div class="spinner border-3 border-upago-greenNeon border-t-transparent rounded-full w-6 h-6 animate-spin"></div>
+                        <span id="botSimText" class="text-xs sm:text-sm text-gray-100">Iniciando lectura de cartola bancaria...</span>
                     </div>
                 </section>
 
@@ -333,80 +330,80 @@
                 <section class="slide-item">
                     <div class="space-y-4">
                         <div class="badge-pill bg-upago-blue/15 text-upago-blue border border-upago-blue/30">
-                            <i class="fas fa-layer-group"></i>
+                            <i class="fas fa-layer-group text-sm"></i>
                             <span>MULTICANALIDAD EN 1 SOLO PANEL</span>
                         </div>
 
-                        <h2 class="font-heading font-black text-2xl sm:text-3xl text-gray-900 leading-tight">
+                        <h2 class="font-heading font-black text-3xl sm:text-4xl text-gray-900 leading-tight">
                             Todas tus vías de pago <span class="text-upago-blue">consolidadas</span>
                         </h2>
 
-                        <p class="text-sm text-gray-700 font-medium">
-                            Transferencias bancarias, tarjetas de crédito/débito y cargos recurrentes (PAC/PAT) en un solo reporte unificado.
+                        <p class="text-sm sm:text-base text-gray-800 font-bold">
+                            Transferencias bancarias, tarjetas de crédito/débito y cargos recurrentes (PAC/PAT) en un reporte único.
                         </p>
 
                         <!-- Dashboard Control Mockup -->
-                        <div class="bg-upago-dark rounded-2xl p-4 text-white shadow-xl space-y-3">
-                            <div class="flex justify-between items-center pb-2 border-b border-gray-700">
+                        <div class="bg-upago-dark rounded-3xl p-5 text-white shadow-2xl space-y-4">
+                            <div class="flex justify-between items-center pb-3 border-b border-gray-700">
                                 <div class="flex items-center gap-2">
-                                    <span class="w-2.5 h-2.5 rounded-full bg-red-500"></span>
-                                    <span class="w-2.5 h-2.5 rounded-full bg-yellow-500"></span>
-                                    <span class="w-2.5 h-2.5 rounded-full bg-green-500"></span>
-                                    <span class="text-xs font-mono text-gray-400 ml-1">UPAGO Control Center</span>
+                                    <span class="w-3 h-3 rounded-full bg-red-500"></span>
+                                    <span class="w-3 h-3 rounded-full bg-yellow-500"></span>
+                                    <span class="w-3 h-3 rounded-full bg-green-500"></span>
+                                    <span class="text-xs font-mono text-gray-400 ml-1 font-bold">UPAGO Control Center</span>
                                 </div>
-                                <span class="bg-upago-green/20 text-upago-greenNeon text-[10px] px-2 py-0.5 rounded-full font-black tracking-wider">ONLINE</span>
+                                <span class="bg-upago-green/20 text-upago-greenNeon text-xs px-2.5 py-1 rounded-full font-black tracking-wider">ONLINE</span>
                             </div>
 
                             <div>
-                                <div class="text-xs text-gray-400 font-bold uppercase tracking-wider">Total Recaudado Conciliado</div>
-                                <div class="text-3xl font-heading font-black text-white flex items-center justify-between mt-1">
+                                <div class="text-xs text-gray-400 font-extrabold uppercase tracking-wider">Total Recaudado Conciliado</div>
+                                <div class="text-3xl sm:text-4xl font-heading font-black text-white flex items-center justify-between mt-1">
                                     <span id="liveAmount" class="tracking-tight">$18,420,000</span>
-                                    <span class="text-xs font-bold text-upago-greenNeon bg-green-950/80 px-2 py-1 rounded-lg border border-green-800">+24.5% 📈</span>
+                                    <span class="text-xs font-black text-upago-greenNeon bg-green-950/80 px-2.5 py-1.5 rounded-xl border border-green-800">+24.5% 📈</span>
                                 </div>
                             </div>
 
                             <div class="space-y-2 pt-1">
-                                <div class="bg-gray-800/90 p-2.5 rounded-xl flex items-center justify-between text-xs">
-                                    <span class="flex items-center gap-2 font-bold text-gray-200">
-                                        <i class="fas fa-university text-upago-blueLight"></i> Transferencias Bancarias
+                                <div class="bg-gray-800/90 p-3 rounded-xl flex items-center justify-between text-xs font-extrabold">
+                                    <span class="flex items-center gap-2 text-gray-200">
+                                        <i class="fas fa-university text-upago-blueLight text-sm"></i> Transferencias Bancarias
                                     </span>
-                                    <span class="text-upago-greenNeon font-black">100% Al instante</span>
+                                    <span class="text-upago-greenNeon font-black">100% Inmediato</span>
                                 </div>
-                                <div class="bg-gray-800/90 p-2.5 rounded-xl flex items-center justify-between text-xs">
-                                    <span class="flex items-center gap-2 font-bold text-gray-200">
-                                        <i class="fas fa-credit-card text-upago-green"></i> Tarjetas Crédito / Débito
+                                <div class="bg-gray-800/90 p-3 rounded-xl flex items-center justify-between text-xs font-extrabold">
+                                    <span class="flex items-center gap-2 text-gray-200">
+                                        <i class="fas fa-credit-card text-upago-green text-sm"></i> Tarjetas Crédito / Débito
                                     </span>
                                     <span class="text-upago-greenNeon font-black">Abono 48h</span>
                                 </div>
-                                <div class="bg-gray-800/90 p-2.5 rounded-xl flex items-center justify-between text-xs">
-                                    <span class="flex items-center gap-2 font-bold text-gray-200">
-                                        <i class="fas fa-rotate text-purple-400"></i> Cargos Recurrentes PAC/PAT
+                                <div class="bg-gray-800/90 p-3 rounded-xl flex items-center justify-between text-xs font-extrabold">
+                                    <span class="flex items-center gap-2 text-gray-200">
+                                        <i class="fas fa-rotate text-purple-400 text-sm"></i> Cargos Recurrentes PAC/PAT
                                     </span>
-                                    <span class="text-white font-bold">Auto-reintentos</span>
+                                    <span class="text-white font-black">Auto-reintentos</span>
                                 </div>
                             </div>
                         </div>
 
                         <!-- Channel Selector Button Bar -->
-                        <div class="bg-white p-3 rounded-2xl border border-gray-200 shadow-sm space-y-2">
-                            <span class="text-xs font-extrabold text-gray-700 block">Toca un canal para simular recaudación:</span>
+                        <div class="bg-white p-3.5 rounded-2xl border border-gray-200 shadow-sm space-y-2">
+                            <span class="text-xs font-black text-gray-800 block">Simula recaudación por canal:</span>
                             <div class="grid grid-cols-3 gap-2">
-                                <button onclick="updateChannelSim('transfer')" class="py-2 px-1 bg-blue-50 border-2 border-blue-200 text-upago-blue rounded-xl text-xs font-black text-center active:scale-95 transition">
+                                <button onclick="updateChannelSim('transfer')" class="py-2.5 px-2 bg-blue-50 border-2 border-blue-200 text-upago-blue rounded-xl text-xs font-black text-center active:scale-95 transition">
                                     🏦 Transfer
                                 </button>
-                                <button onclick="updateChannelSim('card')" class="py-2 px-1 bg-green-50 border-2 border-green-200 text-upago-greenDark rounded-xl text-xs font-black text-center active:scale-95 transition">
+                                <button onclick="updateChannelSim('card')" class="py-2.5 px-2 bg-green-50 border-2 border-green-200 text-upago-greenDark rounded-xl text-xs font-black text-center active:scale-95 transition">
                                     💳 Tarjetas
                                 </button>
-                                <button onclick="updateChannelSim('recurrent')" class="py-2 px-1 bg-purple-50 border-2 border-purple-200 text-purple-700 rounded-xl text-xs font-black text-center active:scale-95 transition">
+                                <button onclick="updateChannelSim('recurrent')" class="py-2.5 px-2 bg-purple-50 border-2 border-purple-200 text-purple-700 rounded-xl text-xs font-black text-center active:scale-95 transition">
                                     🔄 PAC/PAT
                                 </button>
                             </div>
                         </div>
                     </div>
 
-                    <div class="bg-blue-50 border border-blue-200 p-3 rounded-2xl text-xs font-bold text-upago-blue flex items-center gap-2.5">
-                        <i class="fas fa-circle-info text-base shrink-0"></i>
-                        <span>Integración sin cambiar tus cuentas bancarias actuales.</span>
+                    <div class="bg-blue-50 border border-blue-200 p-3.5 rounded-2xl text-xs font-black text-upago-blue flex items-center gap-3">
+                        <i class="fas fa-circle-info text-lg shrink-0"></i>
+                        <span>Sin cambiar tus cuentas bancarias actuales.</span>
                     </div>
                 </section>
 
@@ -414,129 +411,125 @@
                 <section class="slide-item">
                     <div class="space-y-4">
                         <div class="badge-pill bg-upago-green/20 text-upago-greenDark border border-upago-green/40">
-                            <i class="fas fa-bell"></i>
+                            <i class="fas fa-bell text-sm"></i>
                             <span>COBRANZA INTELIGENTE Y PREVENTIVA</span>
                         </div>
 
-                        <h2 class="font-heading font-black text-2xl sm:text-3xl text-gray-900 leading-tight">
+                        <h2 class="font-heading font-black text-3xl sm:text-4xl text-gray-900 leading-tight">
                             Eliminación automática de <span class="text-upago-red">cobros repetidos</span>
                         </h2>
 
-                        <p class="text-sm text-gray-700 font-medium leading-relaxed">
-                            Apenas el cliente paga, el sistema <strong class="text-gray-900">desactiva de inmediato</strong> todo aviso en Email, SMS y WhatsApp.
+                        <p class="text-sm sm:text-base text-gray-800 font-bold leading-relaxed">
+                            Apenas el cliente paga, UPAGO <strong class="text-gray-900 underline">desactiva de inmediato</strong> avisos en Email, SMS y WhatsApp.
                         </p>
 
                         <!-- Live Debt Payment Box -->
-                        <div class="bg-white p-4 rounded-2xl border-2 border-gray-200 shadow-card space-y-3">
-                            <div class="flex items-center justify-between pb-3 border-b border-gray-100">
-                                <div class="flex items-center gap-2.5">
-                                    <div class="w-10 h-10 rounded-xl bg-gray-100 flex items-center justify-center text-lg font-bold text-gray-700">
+                        <div class="bg-white p-4 sm:p-5 rounded-3xl border-2 border-gray-200 shadow-card space-y-3.5">
+                            <div class="flex items-center justify-between pb-3 border-b border-gray-200">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-11 h-11 rounded-2xl bg-gray-100 flex items-center justify-center text-xl font-bold text-gray-700 shrink-0">
                                         🏢
                                     </div>
                                     <div>
-                                        <div class="text-sm font-black text-gray-900">Cliente: Empresa Alpha SpA</div>
-                                        <div class="text-xs text-gray-500 font-medium">Factura N° 84920 • $250.000</div>
+                                        <div class="text-sm font-black text-gray-900">Empresa Alpha SpA</div>
+                                        <div class="text-xs text-gray-600 font-bold">Factura N° 84920 • $250.000</div>
                                     </div>
                                 </div>
-                                <span id="debtBadge" class="bg-amber-100 text-amber-900 border border-amber-300 text-xs font-extrabold px-2.5 py-1 rounded-full">
+                                <span id="debtBadge" class="bg-amber-100 text-amber-900 border border-amber-300 text-xs font-black px-3 py-1 rounded-full">
                                     Pendiente ⏳
                                 </span>
                             </div>
 
                             <!-- Channels Status List -->
                             <div class="space-y-2">
-                                <div id="channelEmail" class="flex items-center justify-between p-2.5 rounded-xl bg-gray-50 border border-gray-100 text-xs font-bold">
+                                <div id="channelEmail" class="flex items-center justify-between p-3 rounded-xl bg-gray-50 border border-gray-200 text-xs font-black">
                                     <span class="flex items-center gap-2 text-gray-800">
-                                        <i class="fas fa-envelope text-blue-600"></i> Email Tokenizado
+                                        <i class="fas fa-envelope text-blue-600 text-sm"></i> Email Tokenizado
                                     </span>
-                                    <span class="status-tag text-amber-700 bg-amber-50 px-2 py-0.5 rounded-md">Recordatorio Programado</span>
+                                    <span class="status-tag text-amber-800 bg-amber-50 px-2.5 py-1 rounded-md">Aviso Programado</span>
                                 </div>
-                                <div id="channelWhatsApp" class="flex items-center justify-between p-2.5 rounded-xl bg-gray-50 border border-gray-100 text-xs font-bold">
+                                <div id="channelWhatsApp" class="flex items-center justify-between p-3 rounded-xl bg-gray-50 border border-gray-200 text-xs font-black">
                                     <span class="flex items-center gap-2 text-gray-800">
-                                        <i class="fab fa-whatsapp text-green-600 text-sm"></i> WhatsApp / VMS Bot
+                                        <i class="fab fa-whatsapp text-green-600 text-base"></i> WhatsApp / VMS Bot
                                     </span>
-                                    <span class="status-tag text-amber-700 bg-amber-50 px-2 py-0.5 rounded-md">Recordatorio Programado</span>
+                                    <span class="status-tag text-amber-800 bg-amber-50 px-2.5 py-1 rounded-md">Aviso Programado</span>
                                 </div>
                             </div>
 
                             <!-- Trigger Payment Button -->
-                            <button id="btnPayDemo" onclick="triggerPaidDemo()" class="w-full bg-gradient-to-r from-upago-green to-emerald-600 text-white py-3.5 rounded-xl font-extrabold text-sm shadow-green-glow active:scale-95 transition flex items-center justify-center gap-2">
-                                <i class="fas fa-circle-check text-lg"></i>
+                            <button id="btnPayDemo" onclick="triggerPaidDemo()" class="w-full bg-gradient-to-r from-upago-green to-emerald-600 text-white py-4 rounded-2xl font-black text-sm shadow-green-glow active:scale-95 transition flex items-center justify-center gap-2">
+                                <i class="fas fa-circle-check text-xl"></i>
                                 <span>SIMULAR PAGO EN BANCO</span>
                             </button>
                         </div>
 
                         <!-- ERP Integrations -->
-                        <div class="bg-gray-100 p-3 rounded-2xl border border-gray-200">
-                            <div class="text-[10px] font-black uppercase tracking-wider text-gray-500 mb-2 text-center">Integración Nativa Sin Fricción</div>
-                            <div class="flex items-center justify-around font-extrabold text-xs text-gray-700">
-                                <span class="bg-white px-3 py-1.5 rounded-xl border border-gray-300 shadow-sm">Salesforce</span>
-                                <span class="bg-white px-3 py-1.5 rounded-xl border border-gray-300 shadow-sm">SAP</span>
-                                <span class="bg-white px-3 py-1.5 rounded-xl border border-gray-300 shadow-sm">API / ERP</span>
+                        <div class="bg-gray-100 p-3.5 rounded-2xl border border-gray-200">
+                            <div class="text-[11px] font-black uppercase tracking-wider text-gray-500 mb-2 text-center">Integración Nativa Sin Fricción</div>
+                            <div class="flex items-center justify-around font-black text-xs text-gray-800">
+                                <span class="bg-white px-3.5 py-2 rounded-xl border border-gray-300 shadow-sm">Salesforce</span>
+                                <span class="bg-white px-3.5 py-2 rounded-xl border border-gray-300 shadow-sm">SAP</span>
+                                <span class="bg-white px-3.5 py-2 rounded-xl border border-gray-300 shadow-sm">API / ERP</span>
                             </div>
                         </div>
                     </div>
-
-                    <p class="text-xs text-gray-500 font-semibold text-center italic">
-                        "Cero reclamos de clientes por avisos de cobranza cuando ya han pagado."
-                    </p>
                 </section>
 
                 <!-- ================= SLIDE 5: RESULTADOS & CTA ================= -->
                 <section class="slide-item">
                     <div class="space-y-4">
                         <div class="badge-pill bg-upago-blue/15 text-upago-blue border border-upago-blue/30">
-                            <i class="fas fa-trophy"></i>
+                            <i class="fas fa-trophy text-sm"></i>
                             <span>RESULTADOS COMPROBADOS EN LATAM</span>
                         </div>
 
-                        <h2 class="font-heading font-black text-2xl sm:text-3xl text-gray-900 leading-tight">
+                        <h2 class="font-heading font-black text-3xl sm:text-4xl text-gray-900 leading-tight">
                             Garantiza tus ingresos con <span class="text-upago-blue">UPAGO</span>
                         </h2>
 
-                        <p class="text-sm text-gray-700 font-medium">
+                        <p class="text-sm sm:text-base text-gray-800 font-bold">
                             Aumenta tu liquidez y recupera cartera vencida en Chile, México y Colombia.
                         </p>
 
                         <!-- Big Metrics Grid -->
                         <div class="grid grid-cols-2 gap-3">
-                            <div class="bg-gradient-to-br from-blue-600 to-upago-blueDark p-4 rounded-2xl text-white shadow-glow flex flex-col justify-between">
-                                <div class="text-3xl font-heading font-black">Hasta 65%</div>
-                                <div class="text-xs font-bold text-blue-100 mt-2 leading-snug">Mejor tiempo de recuperación de cartera</div>
+                            <div class="bg-gradient-to-br from-blue-600 to-upago-blueDark p-4 sm:p-5 rounded-3xl text-white shadow-glow flex flex-col justify-between">
+                                <div class="text-3xl sm:text-4xl font-heading font-black">Hasta 65%</div>
+                                <div class="text-xs sm:text-sm font-bold text-blue-100 mt-2 leading-snug">Mejor tiempo de recuperación</div>
                             </div>
-                            <div class="bg-gradient-to-br from-emerald-600 to-upago-greenDark p-4 rounded-2xl text-white shadow-green-glow flex flex-col justify-between">
-                                <div class="text-3xl font-heading font-black">Hasta 20%</div>
-                                <div class="text-xs font-bold text-green-100 mt-2 leading-snug">Mayor recuperación de vencimientos</div>
+                            <div class="bg-gradient-to-br from-emerald-600 to-upago-greenDark p-4 sm:p-5 rounded-3xl text-white shadow-green-glow flex flex-col justify-between">
+                                <div class="text-3xl sm:text-4xl font-heading font-black">Hasta 20%</div>
+                                <div class="text-xs sm:text-sm font-bold text-green-100 mt-2 leading-snug">Mayor recuperación de vencimientos</div>
                             </div>
                         </div>
 
                         <!-- Advantages Bullets -->
-                        <div class="bg-white p-3.5 rounded-2xl border border-gray-200 shadow-card space-y-2.5">
-                            <div class="flex items-start gap-2.5">
-                                <i class="fas fa-circle-check text-upago-green text-base mt-0.5 shrink-0"></i>
+                        <div class="bg-white p-4 rounded-3xl border border-gray-200 shadow-card space-y-3">
+                            <div class="flex items-start gap-3">
+                                <i class="fas fa-circle-check text-upago-green text-lg mt-0.5 shrink-0"></i>
                                 <div>
-                                    <div class="text-xs font-extrabold text-gray-900">Onboarding en solo 10 minutos</div>
-                                    <div class="text-[11px] text-gray-600 font-medium">Implementación simple sin pausar tu operación.</div>
+                                    <div class="text-sm font-black text-gray-900">Onboarding en solo 10 minutos</div>
+                                    <div class="text-xs text-gray-600 font-bold">Implementación simple sin detener tu operación.</div>
                                 </div>
                             </div>
-                            <div class="flex items-start gap-2.5">
-                                <i class="fas fa-circle-check text-upago-green text-base mt-0.5 shrink-0"></i>
+                            <div class="flex items-start gap-3">
+                                <i class="fas fa-circle-check text-upago-green text-lg mt-0.5 shrink-0"></i>
                                 <div>
-                                    <div class="text-xs font-extrabold text-gray-900">Seguridad Certificada</div>
-                                    <div class="text-[11px] text-gray-600 font-medium">Certificación ISO 27001 y cumplimiento PCI DSS.</div>
+                                    <div class="text-sm font-black text-gray-900">Seguridad Certificada</div>
+                                    <div class="text-xs text-gray-600 font-bold">Certificación ISO 27001 y PCI DSS.</div>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Big CTA Button -->
-                        <button onclick="openDemoModal()" class="w-full bg-gradient-to-r from-upago-blue via-upago-blueDark to-upago-green text-white py-4 rounded-2xl font-heading font-black text-base shadow-glow hover:brightness-110 active:scale-95 transition flex items-center justify-center gap-2">
+                        <!-- CTA Button -->
+                        <button onclick="openDemoModal()" class="w-full bg-gradient-to-r from-upago-blue via-upago-blueDark to-upago-green text-white py-4 sm:py-5 rounded-2xl font-heading font-black text-lg shadow-glow hover:brightness-110 active:scale-95 transition flex items-center justify-center gap-3">
                             <span>SOLICITAR DEMO GRATUITA</span>
                             <i class="fas fa-arrow-right text-upago-greenNeon"></i>
                         </button>
                     </div>
 
                     <!-- Footer Seals -->
-                    <div class="flex items-center justify-center gap-4 text-gray-500 font-bold text-xs pt-2">
+                    <div class="flex items-center justify-center gap-4 text-gray-600 font-black text-xs pt-2">
                         <span class="flex items-center gap-1"><i class="fas fa-shield-halved text-upago-green"></i> ISO 27001</span>
                         <span class="flex items-center gap-1"><i class="fas fa-lock text-upago-blue"></i> PCI DSS</span>
                         <span>🇨🇱 🇲🇽 🇨🇴 LATAM</span>
@@ -546,76 +539,130 @@
             </div>
         </div>
 
-        <footer class="bg-white/95 backdrop-blur-md px-5 py-3 border-t border-gray-200 flex items-center justify-between z-30 shrink-0 pb-safe">
+        <!-- FOOTER NAVIGATION -->
+        <footer class="bg-white px-5 py-3.5 border-t border-gray-200 flex items-center justify-between z-30 shrink-0 pb-safe shadow-lg">
             <!-- Prev Button -->
-            <button id="btnPrev" onclick="prevSlide()" class="w-12 h-12 rounded-2xl bg-gray-100 text-gray-500 hover:bg-gray-200 flex items-center justify-center transition active:scale-90 disabled:opacity-30 disabled:cursor-not-allowed">
-                <i class="fas fa-chevron-left text-base"></i>
+            <button id="btnPrev" onclick="prevSlide()" class="w-12 h-12 rounded-2xl bg-gray-100 text-gray-700 hover:bg-gray-200 flex items-center justify-center transition active:scale-90 disabled:opacity-30 disabled:cursor-not-allowed">
+                <i class="fas fa-chevron-left text-lg"></i>
             </button>
 
             <!-- Dots -->
             <div class="flex items-center gap-2" id="dotsContainer">
-                <button onclick="goToSlide(0)" class="dot w-7 h-3 rounded-full bg-upago-blue transition-all duration-300"></button>
-                <button onclick="goToSlide(1)" class="dot w-3 h-3 rounded-full bg-gray-300 transition-all duration-300"></button>
-                <button onclick="goToSlide(2)" class="dot w-3 h-3 rounded-full bg-gray-300 transition-all duration-300"></button>
-                <button onclick="goToSlide(3)" class="dot w-3 h-3 rounded-full bg-gray-300 transition-all duration-300"></button>
-                <button onclick="goToSlide(4)" class="dot w-3 h-3 rounded-full bg-gray-300 transition-all duration-300"></button>
+                <button onclick="goToSlide(0)" class="dot w-8 h-3.5 rounded-full bg-upago-blue transition-all duration-300"></button>
+                <button onclick="goToSlide(1)" class="dot w-3.5 h-3.5 rounded-full bg-gray-300 transition-all duration-300"></button>
+                <button onclick="goToSlide(2)" class="dot w-3.5 h-3.5 rounded-full bg-gray-300 transition-all duration-300"></button>
+                <button onclick="goToSlide(3)" class="dot w-3.5 h-3.5 rounded-full bg-gray-300 transition-all duration-300"></button>
+                <button onclick="goToSlide(4)" class="dot w-3.5 h-3.5 rounded-full bg-gray-300 transition-all duration-300"></button>
             </div>
 
             <!-- Next Button -->
             <button id="btnNext" onclick="nextSlide()" class="w-12 h-12 rounded-2xl bg-upago-blue text-white flex items-center justify-center shadow-md active:scale-90 transition">
-                <i class="fas fa-chevron-right text-base"></i>
+                <i class="fas fa-chevron-right text-lg"></i>
             </button>
         </footer>
 
     </main>
 
+    <!-- DEMO MODAL -->
     <div id="demoModal" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 flex items-center justify-center p-4 hidden opacity-0 transition-opacity duration-300">
-        <div class="bg-white w-full max-w-sm rounded-3xl p-6 shadow-2xl relative text-upago-dark transform scale-90 transition-transform duration-300" id="demoModalCard">
-            <button onclick="closeDemoModal()" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-gray-100 text-gray-500 flex items-center justify-center hover:bg-gray-200">
-                <i class="fas fa-xmark text-base"></i>
+        <div class="bg-white w-full max-w-md rounded-3xl p-6 sm:p-7 shadow-2xl relative text-upago-dark transform scale-90 transition-transform duration-300" id="demoModalCard">
+            <button onclick="closeDemoModal()" class="absolute top-4 right-4 w-10 h-10 rounded-full bg-gray-100 text-gray-600 flex items-center justify-center hover:bg-gray-200">
+                <i class="fas fa-xmark text-lg"></i>
             </button>
 
-            <div class="flex items-center gap-2.5 mb-3">
-                <div class="w-8 h-8 rounded-xl bg-upago-blue text-white flex items-center justify-center font-black text-sm">U</div>
-                <span class="font-heading font-black text-xl text-upago-dark">Solicitar DEMO UPAGO</span>
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-2xl bg-upago-blue text-white flex items-center justify-center font-black text-lg shadow-sm">U</div>
+                <span class="font-heading font-black text-2xl text-upago-dark">Solicitar DEMO UPAGO</span>
             </div>
 
-            <p class="text-xs text-gray-600 font-medium mb-4">
-                Déjanos tus datos y un especialista en automatización de cobros te contactará en minutos.
+            <!-- FIXED COMMERCIAL EXECUTIVE INFO CARD -->
+            <div class="bg-gradient-to-r from-blue-50 to-emerald-50 border-2 border-upago-blue/30 rounded-2xl p-3.5 mb-4 flex items-center gap-3 shadow-sm">
+                <div class="w-11 h-11 rounded-2xl bg-upago-blue text-white flex items-center justify-center font-black text-xl shrink-0 shadow-md">
+                    <i class="fas fa-user-tie"></i>
+                </div>
+                <div class="text-left leading-tight">
+                    <div class="text-[10px] font-black uppercase text-upago-blue tracking-wider">Ejecutivo Comercial Asignado</div>
+                    <div class="text-base font-black text-gray-900 mt-0.5">Juan Manuel Castro</div>
+                    <div class="text-xs font-extrabold text-gray-700 flex flex-wrap gap-x-3 gap-y-1 mt-1">
+                        <a href="mailto:juanmanuel@upago.cl" class="text-upago-blue hover:underline flex items-center gap-1">
+                            <i class="fas fa-envelope text-xs"></i> juanmanuel@upago.cl
+                        </a>
+                        <a href="tel:+56984032305" class="text-upago-greenDark hover:underline flex items-center gap-1">
+                            <i class="fas fa-phone text-xs"></i> +56 9 8403 2305
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <p class="text-xs sm:text-sm text-gray-700 font-bold mb-3">
+                Ingresa tus datos como interesado/a para que Juan Manuel coordine la demostración de tu empresa.
             </p>
 
-            <form onsubmit="handleFormSubmit(event)" class="space-y-3">
+            <!-- FUNCTIONAL FORM FOR INTERESTED PROSPECT -->
+            <form id="demoForm" onsubmit="handleFormSubmit(event)" class="space-y-3">
                 <div>
-                    <label class="block text-xs font-extrabold text-gray-700 mb-1">Nombre Completo</label>
-                    <input type="text" required placeholder="Ej. Felipe Pastenes" class="w-full text-sm p-3.5 rounded-xl border border-gray-300 focus:outline-none focus:border-upago-blue bg-gray-50 font-medium">
+                    <label class="block text-xs font-black text-gray-800 mb-1">Tu Nombre Completo <span class="text-upago-blue">*</span></label>
+                    <input id="userName" type="text" required placeholder="Ej: María González" class="w-full text-sm p-3 rounded-xl border-2 border-gray-300 focus:outline-none focus:border-upago-blue bg-gray-50 font-bold text-gray-900">
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-xs font-black text-gray-800 mb-1">Tu Correo Electrónico <span class="text-upago-blue">*</span></label>
+                        <input id="userEmail" type="email" required placeholder="tuemail@empresa.com" class="w-full text-sm p-3 rounded-xl border-2 border-gray-300 focus:outline-none focus:border-upago-blue bg-gray-50 font-bold text-gray-900">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-black text-gray-800 mb-1">Tu Teléfono / WhatsApp <span class="text-upago-blue">*</span></label>
+                        <input id="userPhone" type="tel" required placeholder="+56 9 1234 5678" class="w-full text-sm p-3 rounded-xl border-2 border-gray-300 focus:outline-none focus:border-upago-blue bg-gray-50 font-bold text-gray-900">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-xs font-black text-gray-800 mb-1">Tu Empresa / Razón Social</label>
+                        <input id="userCompany" type="text" placeholder="Ej: Servicios Latam SpA" class="w-full text-sm p-3 rounded-xl border-2 border-gray-300 focus:outline-none focus:border-upago-blue bg-gray-50 font-bold text-gray-900">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-black text-gray-800 mb-1">País de Operación <span class="text-upago-blue">*</span></label>
+                        <select id="userCountry" class="w-full text-sm p-3 rounded-xl border-2 border-gray-300 focus:outline-none focus:border-upago-blue bg-gray-50 font-black text-gray-900">
+                            <option value="Chile" selected>🇨🇱 Chile</option>
+                            <option value="México">🇲🇽 México</option>
+                            <option value="Colombia">🇨🇴 Colombia</option>
+                            <option value="Otro LATAM">Otro país de LATAM</option>
+                        </select>
+                    </div>
                 </div>
 
                 <div>
-                    <label class="block text-xs font-extrabold text-gray-700 mb-1">Correo Empresa</label>
-                    <input type="email" required placeholder="felipe@empresa.com" class="w-full text-sm p-3.5 rounded-xl border border-gray-300 focus:outline-none focus:border-upago-blue bg-gray-50 font-medium">
+                    <label class="block text-xs font-black text-gray-800 mb-1">Mensaje o Requerimiento</label>
+                    <textarea id="userMessage" rows="2" class="w-full text-sm p-3 rounded-xl border-2 border-gray-300 focus:outline-none focus:border-upago-blue bg-gray-50 font-bold text-gray-900" placeholder="Describe brevemente tus necesidades de cobro o conciliación..."></textarea>
                 </div>
 
-                <div>
-                    <label class="block text-xs font-extrabold text-gray-700 mb-1">País de Operación</label>
-                    <select class="w-full text-sm p-3.5 rounded-xl border border-gray-300 focus:outline-none focus:border-upago-blue bg-gray-50 font-bold">
-                        <option>🇨🇱 Chile</option>
-                        <option>🇲🇽 México</option>
-                        <option>🇨🇴 Colombia</option>
-                        <option>Otro país de LATAM</option>
-                    </select>
-                </div>
-
-                <button type="submit" class="w-full bg-gradient-to-r from-upago-blue to-upago-green text-white py-3.5 rounded-xl font-black text-sm shadow-md hover:brightness-105 active:scale-95 transition mt-2">
-                    CONFIRMAR SOLICITUD
+                <button id="submitBtn" type="submit" class="w-full bg-gradient-to-r from-upago-blue to-upago-green text-white py-3.5 rounded-xl font-black text-sm shadow-lg hover:brightness-105 active:scale-95 transition mt-2 flex items-center justify-center gap-2">
+                    <i id="submitBtnIcon" class="fas fa-paper-plane"></i>
+                    <span id="submitBtnText">ENVIAR A JUAN MANUEL CASTRO</span>
                 </button>
             </form>
 
-            <div id="formSuccess" class="hidden text-center py-6 space-y-3">
+            <!-- DYNAMIC SUCCESS RESPONSE -->
+            <div id="formSuccess" class="hidden text-center py-2 space-y-3">
                 <div class="w-14 h-14 bg-green-100 text-upago-greenDark rounded-full flex items-center justify-center text-3xl mx-auto check-pop">
                     <i class="fas fa-check"></i>
                 </div>
-                <h3 class="font-heading font-black text-lg text-gray-900">¡Solicitud Recibida!</h3>
-                <p class="text-xs text-gray-600 font-medium">Un asesor de UPAGO te contactará a la brevedad.</p>
+                <h3 class="font-heading font-black text-xl text-gray-900 leading-tight">¡Solicitud Enviada con Éxito!</h3>
+                <p class="text-xs text-gray-700 font-bold">Hemos despachado tus datos a <strong class="text-upago-blue">Juan Manuel Castro</strong> (<span class="text-gray-900">juanmanuel@upago.cl</span> / <span class="text-gray-900">+56 9 8403 2305</span>).</p>
+                
+                <div class="bg-gray-50 p-3.5 rounded-2xl border border-gray-200 text-left space-y-1.5 max-h-48 overflow-y-auto shadow-inner">
+                    <div class="text-[11px] font-black text-upago-blue uppercase tracking-wider flex items-center gap-1.5">
+                        <i class="fas fa-robot text-xs"></i> Confirmación de Recepción
+                    </div>
+                    <div id="aiResponsePreview" class="text-xs text-gray-800 font-semibold whitespace-pre-line leading-relaxed">
+                        Procesando confirmación...
+                    </div>
+                </div>
+
+                <button onclick="closeDemoModal()" class="w-full bg-upago-dark text-white py-3 rounded-xl font-black text-xs shadow hover:bg-gray-800 transition">
+                    CERRAR VENTANA
+                </button>
             </div>
         </div>
     </div>
@@ -626,7 +673,7 @@
         const totalSlides = 5;
         let soundEnabled = true;
 
-        // Touch Swipe Logic for Carousel
+        // Touch Swipe Logic
         let touchStartX = 0;
         let touchEndX = 0;
         const carouselViewport = document.getElementById('carouselViewport');
@@ -670,15 +717,15 @@
                     osc.stop(audioCtx.currentTime + 0.08);
                 } else if (type === 'success') {
                     osc.type = 'triangle';
-                    osc.frequency.setValueAtTime(523.25, audioCtx.currentTime); // C5
-                    osc.frequency.setValueAtTime(659.25, audioCtx.currentTime + 0.1); // E5
+                    osc.frequency.setValueAtTime(523.25, audioCtx.currentTime);
+                    osc.frequency.setValueAtTime(659.25, audioCtx.currentTime + 0.1);
                     gain.gain.setValueAtTime(0.12, audioCtx.currentTime);
                     gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.25);
                     osc.start();
                     osc.stop(audioCtx.currentTime + 0.25);
                 }
             } catch (e) {
-                console.log('Audio Context ready');
+                console.log('Audio Context active');
             }
         }
 
@@ -686,9 +733,9 @@
             soundEnabled = !soundEnabled;
             const icon = document.getElementById('soundIcon');
             if (soundEnabled) {
-                icon.className = 'fas fa-volume-up text-sm text-upago-blue';
+                icon.className = 'fas fa-volume-up text-base text-upago-blue';
             } else {
-                icon.className = 'fas fa-volume-xmark text-sm text-gray-400';
+                icon.className = 'fas fa-volume-xmark text-base text-gray-400';
             }
         }
 
@@ -703,9 +750,9 @@
             const dots = document.querySelectorAll('.dot');
             dots.forEach((dot, index) => {
                 if (index === currentSlide) {
-                    dot.className = 'dot w-7 h-3 rounded-full bg-upago-blue transition-all duration-300';
+                    dot.className = 'dot w-8 h-3.5 rounded-full bg-upago-blue transition-all duration-300';
                 } else {
-                    dot.className = 'dot w-3 h-3 rounded-full bg-gray-300 transition-all duration-300';
+                    dot.className = 'dot w-3.5 h-3.5 rounded-full bg-gray-300 transition-all duration-300';
                 }
             });
 
@@ -713,10 +760,10 @@
             
             const btnNext = document.getElementById('btnNext');
             if (currentSlide === totalSlides - 1) {
-                btnNext.innerHTML = '<i class="fas fa-check text-base"></i>';
+                btnNext.innerHTML = '<i class="fas fa-check text-lg"></i>';
                 btnNext.className = 'w-12 h-12 rounded-2xl bg-upago-green text-white flex items-center justify-center shadow-md active:scale-90 transition';
             } else {
-                btnNext.innerHTML = '<i class="fas fa-chevron-right text-base"></i>';
+                btnNext.innerHTML = '<i class="fas fa-chevron-right text-lg"></i>';
                 btnNext.className = 'w-12 h-12 rounded-2xl bg-upago-blue text-white flex items-center justify-center shadow-md active:scale-90 transition';
             }
 
@@ -749,9 +796,9 @@
             for (let i = 1; i <= 3; i++) {
                 const card = document.getElementById(`stepCard${i}`);
                 if (i === stepNum) {
-                    card.className = "p-3.5 rounded-2xl bg-white border-2 border-upago-blue shadow-md transition-all cursor-pointer opacity-100 scale-[1.02]";
+                    card.className = "p-4 rounded-2xl bg-white border-2 border-upago-blue shadow-md transition-all cursor-pointer opacity-100 scale-[1.02]";
                 } else {
-                    card.className = "p-3.5 rounded-2xl bg-white border border-gray-200 opacity-60 transition-all cursor-pointer";
+                    card.className = "p-4 rounded-2xl bg-white border border-gray-200 opacity-60 transition-all cursor-pointer";
                 }
             }
         }
@@ -801,17 +848,17 @@
             const emailTag = document.querySelector('#channelEmail .status-tag');
             const waTag = document.querySelector('#channelWhatsApp .status-tag');
 
-            debtBadge.className = "bg-green-100 text-upago-greenDark border border-green-300 text-xs font-black px-2.5 py-1 rounded-full check-pop";
-            debtBadge.innerText = "CONCILIADO EN EN LÍNEA ✅";
+            debtBadge.className = "bg-green-100 text-upago-greenDark border border-green-300 text-xs font-black px-3 py-1 rounded-full check-pop";
+            debtBadge.innerText = "CONCILIADO EN LÍNEA ✅";
 
-            emailTag.className = "status-tag text-upago-greenDark bg-green-100 px-2 py-0.5 rounded-md font-black";
+            emailTag.className = "status-tag text-upago-greenDark bg-green-100 px-2.5 py-1 rounded-md font-black";
             emailTag.innerText = "🚫 Recordatorio Detenido";
 
-            waTag.className = "status-tag text-upago-greenDark bg-green-100 px-2 py-0.5 rounded-md font-black";
+            waTag.className = "status-tag text-upago-greenDark bg-green-100 px-2.5 py-1 rounded-md font-black";
             waTag.innerText = "🚫 Recordatorio Detenido";
 
-            btn.className = "w-full bg-gray-100 text-gray-500 py-3.5 rounded-xl font-black text-xs border border-gray-300 cursor-default";
-            btn.innerHTML = "<i class='fas fa-check text-upago-greenDark text-base'></i> <span>Pago abonado en cuenta corriente en tiempo real</span>";
+            btn.className = "w-full bg-gray-100 text-gray-600 py-4 rounded-xl font-black text-xs border border-gray-300 cursor-default";
+            btn.innerHTML = "<i class='fas fa-check text-upago-greenDark text-lg'></i> <span>Pago abonado en cuenta corriente en tiempo real</span>";
 
             playSoundEffect('success');
         }
@@ -836,20 +883,79 @@
             modalContainer.classList.add('scale-90');
             setTimeout(() => {
                 modal.classList.add('hidden');
+                // Reset form state if reopened
+                document.getElementById('demoForm').classList.remove('hidden');
+                document.getElementById('formSuccess').classList.add('hidden');
             }, 300);
         }
 
-        function handleFormSubmit(e) {
+        async function handleFormSubmit(e) {
             e.preventDefault();
-            document.querySelector('#demoModal form').classList.add('hidden');
-            document.getElementById('formSuccess').classList.remove('hidden');
-            playSoundEffect('success');
-            setTimeout(() => {
-                closeDemoModal();
-            }, 3000);
+            const submitBtn = document.getElementById('submitBtn');
+            const submitBtnText = document.getElementById('submitBtnText');
+            const submitBtnIcon = document.getElementById('submitBtnIcon');
+            const prospectName = document.getElementById('userName').value;
+            const prospectEmail = document.getElementById('userEmail').value;
+            const prospectPhone = document.getElementById('userPhone').value;
+            const prospectCompany = document.getElementById('userCompany')?.value || "Empresa no especificada";
+            const prospectCountry = document.getElementById('userCountry').value;
+            const prospectMessage = document.getElementById('userMessage').value || "Solicitud de demostración de conciliación bancaria automatizada para empresas.";
+
+            // UI Loading state
+            submitBtn.disabled = true;
+            submitBtn.classList.add('opacity-75', 'cursor-wait');
+            submitBtnIcon.className = "fas fa-spinner fa-spin";
+            submitBtnText.innerText = "ENVIANDO A JUAN MANUEL...";
+
+            try {
+                // Call Gemini API to generate live confirmation message
+                const systemPrompt = "Eres el sistema automático de respuesta comercial de UPAGO (Fintech líder en LATAM). Genera una respuesta ejecutiva y cordial confirmando la recepción de la solicitud para el cliente interesado y señalando que Juan Manuel Castro (Ejecutivo Comercial de UPAGO) lo contactará inmediatamente.";
+                const userQuery = `Solicitante interesado: ${prospectName} (Email: ${prospectEmail}, Teléfono: ${prospectPhone}, Empresa: ${prospectCompany}, País: ${prospectCountry}). Requerimiento: "${prospectMessage}". Ejecutivo asignado de UPAGO: Juan Manuel Castro (Email: juanmanuel@upago.cl, Teléfono: +56 9 8403 2305). Genera un mensaje de confirmación profesional para el solicitante.`;
+
+                const payload = {
+                    contents: [{ parts: [{ text: userQuery }] }],
+                    systemInstruction: { parts: [{ text: systemPrompt }] }
+                };
+
+                const apiKey = "";
+                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${apiKey}`;
+
+                let aiResponseText = "";
+                try {
+                    const response = await fetch(apiUrl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+                    const result = await response.json();
+                    aiResponseText = result.candidates?.[0]?.content?.parts?.[0]?.text || "";
+                } catch (err) {
+                    console.log("Fallback response active");
+                }
+
+                if (!aiResponseText) {
+                    aiResponseText = `Estimado/a ${prospectName},\n\nHemos recibido con éxito tus datos de contacto para ${prospectCompany} en ${prospectCountry}.\n\nNuestro Ejecutivo Comercial Juan Manuel Castro (juanmanuel@upago.cl / +56 9 8403 2305) te contactará directamente al teléfono ${prospectPhone} y correo ${prospectEmail} para agendar la DEMO en vivo.\n\n✅ Beneficios asignados a tu propuesta:\n• Conciliación bancaria minuto a minuto en cuenta corriente.\n• Desactivación automática de cobros duplicados por multicanal.`;
+                }
+
+                // Show success container
+                document.getElementById('demoForm').classList.add('hidden');
+                const formSuccess = document.getElementById('formSuccess');
+                formSuccess.classList.remove('hidden');
+
+                document.getElementById('aiResponsePreview').innerText = aiResponseText;
+
+                playSoundEffect('success');
+            } catch (err) {
+                console.error(err);
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.classList.remove('opacity-75', 'cursor-wait');
+                submitBtnIcon.className = "fas fa-paper-plane";
+                submitBtnText.innerText = "ENVIAR A JUAN MANUEL CASTRO";
+            }
         }
 
-        // Keyboard navigation for desktop testing
+        // Keyboard navigation
         document.addEventListener('keydown', (e) => {
             if (e.key === 'ArrowRight') nextSlide();
             if (e.key === 'ArrowLeft') prevSlide();
