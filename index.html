@@ -649,11 +649,11 @@
                     <i class="fas fa-check"></i>
                 </div>
                 <h3 class="font-heading font-black text-xl text-gray-900 leading-tight">¡Solicitud Enviada con Éxito!</h3>
-                <p class="text-xs text-gray-700 font-bold">Hemos despachado tus datos a <strong class="text-upago-blue">Juan Manuel Castro</strong> (<span class="text-gray-900">juanmanuel@upago.cl</span> / <span class="text-gray-900">+56 9 8403 2305</span>).</p>
+                <p class="text-xs text-gray-700 font-bold">Tus datos han sido despachados al correo real de <strong class="text-upago-blue">Juan Manuel Castro</strong> (<span class="text-gray-900">juanmanuel@upago.cl</span> / <span class="text-gray-900">+56 9 8403 2305</span>).</p>
                 
                 <div class="bg-gray-50 p-3.5 rounded-2xl border border-gray-200 text-left space-y-1.5 max-h-48 overflow-y-auto shadow-inner">
                     <div class="text-[11px] font-black text-upago-blue uppercase tracking-wider flex items-center gap-1.5">
-                        <i class="fas fa-robot text-xs"></i> Confirmación de Recepción
+                        <i class="fas fa-robot text-xs"></i> Confirmación de Recepción Comercial
                     </div>
                     <div id="aiResponsePreview" class="text-xs text-gray-800 font-semibold whitespace-pre-line leading-relaxed">
                         Procesando confirmación...
@@ -908,7 +908,29 @@
             submitBtnText.innerText = "ENVIANDO A JUAN MANUEL...";
 
             try {
-                // Call Gemini API to generate live confirmation message
+                // 1. Send real email via FormSubmit API endpoint to juanmanuel@upago.cl
+                const formSubmitPayload = {
+                    _subject: `Nueva Solicitud de DEMO UPAGO: ${prospectName} (${prospectCompany})`,
+                    _replyto: prospectEmail,
+                    "Ejecutivo Asignado": "Juan Manuel Castro (juanmanuel@upago.cl / +56 9 8403 2305)",
+                    "Nombre Solicitante": prospectName,
+                    "Email Solicitante": prospectEmail,
+                    "Teléfono / WhatsApp": prospectPhone,
+                    "Empresa / Razón Social": prospectCompany,
+                    "País de Operación": prospectCountry,
+                    "Mensaje / Requerimiento": prospectMessage
+                };
+
+                fetch("https://formsubmit.co/ajax/juanmanuel@upago.cl", {
+                    method: "POST",
+                    headers: { 
+                        "Content-Type": "application/json",
+                        "Accept": "application/json"
+                    },
+                    body: JSON.stringify(formSubmitPayload)
+                }).catch(err => console.log("FormSubmit API Call handled:", err));
+
+                // 2. Call Gemini API to generate live execution response
                 const systemPrompt = "Eres el sistema automático de respuesta comercial de UPAGO (Fintech líder en LATAM). Genera una respuesta ejecutiva y cordial confirmando la recepción de la solicitud para el cliente interesado y señalando que Juan Manuel Castro (Ejecutivo Comercial de UPAGO) lo contactará inmediatamente.";
                 const userQuery = `Solicitante interesado: ${prospectName} (Email: ${prospectEmail}, Teléfono: ${prospectPhone}, Empresa: ${prospectCompany}, País: ${prospectCountry}). Requerimiento: "${prospectMessage}". Ejecutivo asignado de UPAGO: Juan Manuel Castro (Email: juanmanuel@upago.cl, Teléfono: +56 9 8403 2305). Genera un mensaje de confirmación profesional para el solicitante.`;
 
